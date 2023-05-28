@@ -1,14 +1,11 @@
 <template>
-    <MainLayout>
-        <div>Index</div>
-        <div>
-            The Message is from {{ message }}
-        </div>
-    </MainLayout>
+  <div>Index</div>
+  <div>
+    The Message is from {{ message }}
+  </div>
 </template>
 
 <script setup>
-    import { Link } from '@inertiajs/vue3';
-import MainLayout from '../../Layouts/MainLayout.vue';
-    defineProps(['message'])
+import { Link } from '@inertiajs/vue3'
+defineProps(['message'])
 </script>
