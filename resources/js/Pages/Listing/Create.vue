@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form @submit.prevent="create">
         <div>
             <div>
                 <label for="">Beds</label>
@@ -19,7 +19,7 @@
             </div>
             <div>
                 <label for="">Postcode</label>
-                <input type="text" v-model="form.postcode">
+                <input type="text" v-model="form.code">
             </div>
             <div>
                 <label for="">Street</label>
@@ -51,20 +51,18 @@
 </style>
 
 <script setup>
-    import { router } from '@inertiajs/vue3';
-    import { reactive } from 'vue';
+    import { useForm } from '@inertiajs/vue3';
 
-
-    const form = reactive({
+    const form = useForm({
         beds: 0,
         baths: 0,
         area: 0,
         city: null,
-        postcode: null,
+        code: null,
         street: null,
         street_nr: null,
         price: 0,
     })
 
-    const create = () => router.post('/listing', form)
+    const create = () => form.post('/listing')
 </script>
